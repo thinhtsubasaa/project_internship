@@ -83,11 +83,11 @@ export default function HeaderComponent() {
           items={[
             {
               key: "about-us",
-              label: "Về CRT",
+              label: "Dang Ngoc Thinh",
             },
             {
               key: "cars",
-              label: "Danh sách xe",
+              label: "Dang Ngoc Thinh Car",
             },
             {
               key: "contact",
