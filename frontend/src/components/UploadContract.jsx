@@ -11,7 +11,7 @@ import axios from "axios";
 import { useState } from "react";
 
 export const UploadContract = ({ value, onChange }) => {
-  const endpoint = `https://api.cloudinary.com/v1_1/djllhxlfc/image/upload`;
+  const endpoint = `https://api.cloudinary.com/v1_1/dirpbbkoo/image/upload`;
   const [messageApi, contextHolder] = message.useMessage();
 
   const [loading, setLoading] = useState(false);
@@ -52,7 +52,7 @@ export const UploadContract = ({ value, onChange }) => {
             setLoading(true);
             const formData = new FormData();
             formData.append("file", file);
-            formData.append("upload_preset", "contracts");
+            formData.append("upload_preset", "personal-project");
 
             try {
               const { data } = await axios.post(endpoint, formData, {

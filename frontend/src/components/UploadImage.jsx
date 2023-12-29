@@ -11,7 +11,7 @@ const StyledUpload = styled(Upload.Dragger)`
 `;
 
 export const UploadImage = ({ value, onChange }) => {
-  const endpoint = `https://api.cloudinary.com/v1_1/djllhxlfc/image/upload`;
+  const endpoint = `hhttps://api.cloudinary.com/v1_1/dirpbbkoo/image/upload`;
   const [messageApi, contextHolder] = message.useMessage();
 
   const [loading, setLoading] = useState(false);
@@ -29,7 +29,7 @@ export const UploadImage = ({ value, onChange }) => {
           setLoading(true);
           const formData = new FormData();
           formData.append("file", file);
-          formData.append("upload_preset", "rental-car");
+          formData.append("upload_preset", "personal-project");
 
           try {
             const { data } = await axios.post(endpoint, formData, {
