@@ -5,7 +5,7 @@ import { useDriverState } from "@/recoils/driver.state.js";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { Button, Input, Form, notification, Modal } from "antd";
+import { Button, Input, Form, notification, Modal, Select } from "antd";
 import styled from "@emotion/styled";
 
 const StyleInputModal = styled(Input)`
@@ -88,6 +88,7 @@ export default function EditProfileModal({
             email: response.data.result.email,
             phoneNumber: response.data.result.phoneNumber,
             fullname: response.data.result.fullname,
+            gender: response.data.result.gender,
           },
         }));
 
@@ -157,7 +158,7 @@ export default function EditProfileModal({
           name="fullname"
           rules={[{ validator: validateFullname }]}
         >
-          <StyleInputModal type="text" size="large" />
+          <Input size="large" />
         </Form.Item>
         <Form.Item
           label="Địa chỉ"
@@ -169,7 +170,7 @@ export default function EditProfileModal({
             },
           ]}
         >
-          <StyleInputModal size="large" />
+          <Input size="large" />
         </Form.Item>
         <Form.Item
           label="Email"
@@ -181,14 +182,17 @@ export default function EditProfileModal({
             },
           ]}
         >
-          <StyleInputModal size="large" />
+          <Input size="large" />
         </Form.Item>
         <Form.Item
           label="Số điện thoại"
           name="phoneNumber"
           rules={[{ validator: validatePhoneNumber }]}
         >
-          <StyleInputModal size="large" />
+          <Input size="large" />
+        </Form.Item>
+        <Form.Item label="Giới tính" name="gender">
+          <Select options={[{ value: "Nam" }, { value: "Nữ" }]} size="large" />
         </Form.Item>
       </Form>
     </Modal>
