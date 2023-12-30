@@ -83,11 +83,11 @@ export default function HeaderComponent() {
           items={[
             {
               key: "about-us",
-              label: "Về CRT",
+              label: <div onClick={() => push("/about-us")}>Về CRT</div>,
             },
             {
               key: "cars",
-              label: "Danh sách xe",
+              label: <div onClick={() => push("/cars")}>Danh sách xe</div>,
             },
             {
               key: "contact",

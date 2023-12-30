@@ -8,12 +8,20 @@ export default function AboutUsPage() {
           <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0 ">
             <div className="lg:max-w-md">
               <div className="px-4 pl-4 mb-6 border-l-4 border-blue-500">
-                <span className="text-sm text-gray-600 uppercase">Who we are?</span>
-                <h1 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl">About Us</h1>
+                <h1 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl">
+                  CRT- Cùng bạn đến mọi hành trình
+                </h1>
               </div>
               <p className="px-4 mb-10 text-base leading-7 text-gray-500">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit amet.
+                Mỗi chuyến đi là một hành trình khám phá cuộc sống và thế giới
+                xung quanh, là cơ hội học hỏi và chinh phục những điều mới lạ
+                của mỗi cá nhân để trở nên tốt hơn. Do đó, chất lượng trải
+                nghiệm của khách hàng là ưu tiên hàng đầu và là nguồn cảm hứng
+                của đội ngũ CRT. CRT là nền tảng chia sẻ ô tô, sứ mệnh của chúng
+                tôi không chỉ dừng lại ở việc kết nối chủ xe và khách hàng một
+                cách Nhanh chóng - An toàn - Tiện lợi, mà còn hướng đến việc
+                truyền cảm hứng KHÁM PHÁ những điều mới lạ đến cộng đồng qua
+                những chuyến đi trên nền tảng của chúng tôi.
               </p>
               <div className="flex flex-wrap items-center">
                 <div className="w-full px-4 mb-6 sm:w-1/2 md:w-1/2 lg:mb-6">
@@ -31,8 +39,12 @@ export default function AboutUsPage() {
                         <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
                       </svg>
                     </span>
-                    <p className="mt-4 mb-2 text-3xl font-bold text-gray-700">2097</p>
-                    <h2 className="text-sm text-gray-700">Projects and Plans</h2>
+                    <p className="mt-4 mb-2 text-3xl font-bold text-gray-700">
+                      100+
+                    </p>
+                    <h2 className="text-sm text-gray-700">
+                      Dòng xe khác nhau đang cho thuê
+                    </h2>
                   </div>
                 </div>
                 <div className="w-full px-4 mb-6 sm:w-1/2 md:w-1/2 lg:mb-6">
@@ -54,8 +66,12 @@ export default function AboutUsPage() {
                         <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
                       </svg>
                     </span>
-                    <p className="mt-4 mb-2 text-3xl font-bold text-gray-700">3,590</p>
-                    <h2 className="text-sm text-gray-700">Helped people</h2>
+                    <p className="mt-4 mb-2 text-3xl font-bold text-gray-700">
+                      3,590
+                    </p>
+                    <h2 className="text-sm text-gray-700">
+                      Khách hàng đã trải nghiệm dịch vụ
+                    </h2>
                   </div>
                 </div>
                 <div className="w-full px-4 mb-6 sm:w-1/2 md:w-1/2 lg:mb-6">
@@ -72,8 +88,10 @@ export default function AboutUsPage() {
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                       </svg>
                     </span>
-                    <p className="mt-4 mb-2 text-3xl font-bold text-gray-700">74</p>
-                    <h2 className="text-sm text-gray-700">Volunteer</h2>
+                    <p className="mt-4 mb-2 text-3xl font-bold text-gray-700">
+                      74
+                    </p>
+                    <h2 className="text-sm text-gray-700">Nhân viên</h2>
                   </div>
                 </div>
                 <div className="w-full px-4 mb-6 sm:w-1/2 md:w-1/2 lg:mb-6">
@@ -90,8 +108,10 @@ export default function AboutUsPage() {
                         <path d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5zm2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.035 8.035 0 0 0-3.527-3.527z" />
                       </svg>
                     </span>
-                    <p className="mt-4 mb-2 text-3xl font-bold text-gray-700">100</p>
-                    <h2 className="text-sm text-gray-700">Timing</h2>
+                    <p className="mt-4 mb-2 text-3xl font-bold text-gray-700">
+                      100
+                    </p>
+                    <h2 className="text-sm text-gray-700">Thời gian</h2>
                   </div>
                 </div>
               </div>
