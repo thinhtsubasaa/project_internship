@@ -1,40 +1,15 @@
 import { atom, useRecoilState, useRecoilValue } from "recoil";
-import { apiClient } from "../apis/client";
-const getProfile = async () => {
+const getProfile = (key) => {
   try {
     if (typeof window !== "undefined") {
-      const value = window.localStorage.getItem("access_token");
+      const value = window.localStorage.getItem(key);
+      return value ? JSON.parse(value) : null;
     }
     return null;
   } catch (error) {
     console.log(error);
   }
 };
-// const getProfile = async () => {
-//   try {
-//     if (typeof window !== "undefined") {
-//       const value = window.localStorage.getItem("access_token");
-
-//       if (value !== null) {
-//         const { data } = await apiClient.request({
-//           method: "GET",
-//           url: "/users/get-user",
-//           headers: {
-//             Authorization: `Bearer ${JSON.parse(value)}`,
-//             "Content-Type": "application/json",
-//           },
-//           withCredentials: true,
-//         });
-//         console.log(data);
-
-//         return data;
-//       }
-//     }
-//     return null;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 
 export const driverAtom = atom({
   key: "driver",

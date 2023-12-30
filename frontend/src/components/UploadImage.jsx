@@ -11,7 +11,7 @@ const StyledUpload = styled(Upload.Dragger)`
 `;
 
 export const UploadImage = ({ value, onChange }) => {
-  const endpoint = `hhttps://api.cloudinary.com/v1_1/dirpbbkoo/image/upload`;
+  const endpoint = `https://api.cloudinary.com/v1_1/dirpbbkoo/image/upload`;
   const [messageApi, contextHolder] = message.useMessage();
 
   const [loading, setLoading] = useState(false);

@@ -32,7 +32,6 @@ export const ProfileLayout = ({ children }) => {
   const [user, setUser] = useUserState();
   const [accessToken, setAccessToken, clearAccessToken] =
     useLocalStorage("access_token");
-  const [profile, setProfile, clearProfile] = useLocalStorage("profile", "");
   const [driver, setDriver] = useDriverState();
   const router = useRouter();
   const items = [
@@ -99,7 +98,6 @@ export const ProfileLayout = ({ children }) => {
             clearAccessToken();
             setUser(null);
             setDriver(null);
-            clearProfile();
             router.push("/");
           }}
         >

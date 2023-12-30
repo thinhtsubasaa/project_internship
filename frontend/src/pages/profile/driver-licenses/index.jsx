@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import useLocalStorage from "@/hooks/useLocalStorage";
+import React, { useState } from "react";
 import { useUserState } from "@/recoils/user.state.js";
 import { useDriverState } from "@/recoils/driver.state";
 import { Typography, Button, Input, Image, Space } from "antd";
@@ -14,7 +13,6 @@ import {
 } from "@ant-design/icons";
 
 import styled from "@emotion/styled";
-import { apiClient } from "@/apis/client";
 import RegisterDriverModal from "@/components/RegisterDriverModal";
 const { Title } = Typography;
 const StyleInput = styled(Input)`
@@ -31,9 +29,6 @@ export default function DriverPage() {
 
   const [user, setUser] = useUserState();
   const [driver, setDriver] = useDriverState();
-  const [profile, setProfile, clearProfile] = useLocalStorage("profile", "");
-
-  const [loading, setLoading] = useState(false);
 
   const status = user?.result?.driverLicenses?.status || "Chưa xác thực";
 
@@ -59,11 +54,7 @@ export default function DriverPage() {
             </p>
           </Title>
           <div className="flex">
-            <Button
-              type="default"
-              // className="rounded-lg border-solid border-black font-bold text-xs"
-              onClick={showModalRegister}
-            >
+            <Button type="default" onClick={showModalRegister}>
               Đăng ký
               <EditOutlined />
             </Button>

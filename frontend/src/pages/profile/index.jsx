@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from "react";
-import useLocalStorage from "@/hooks/useLocalStorage";
 import { useUserState } from "@/recoils/user.state.js";
 import moment from "moment";
-import { Typography, Button, Input } from "antd";
+import { Button } from "antd";
 import { EditOutlined } from "@ant-design/icons";
-
-import styled from "@emotion/styled";
 import { apiClient } from "@/apis/client";
 import { ProfileLayout } from "@/layouts/ProfileLayout";
 import EditProfileModal from "@/components/EditProfileModal";
 import { UploadProfilePicture } from "@/components/UploadProfilePicture";
-const { Title } = Typography;
-const StyleInput = styled(Input)`
-  display: flex;
-  align-items: center;
-  padding: 12px;
-  width: 100%;
-`;
 
 export default function AccountPage() {
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -24,9 +14,6 @@ export default function AccountPage() {
   const handleCancleEditModal = () => setOpenEditModal(false);
 
   const [user, setUser] = useUserState();
-  const [profile, setProfile, clearProfile] = useLocalStorage("profile", "");
-
-  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const getProfile = async () => {
       try {
@@ -168,7 +155,7 @@ export default function AccountPage() {
               </p>
               <p className="mt-0 mb-0 text-xl font-semibold text-gray-500 flex w-full">
                 {" "}
-                {user?.result?.gender}
+                Nam
               </p>
             </div>
             <hr

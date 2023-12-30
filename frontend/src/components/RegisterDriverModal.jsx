@@ -1,12 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { useDriverState } from "@/recoils/driver.state.js";
 import { useUserState } from "@/recoils/user.state.js";
 import { useMutation } from "@tanstack/react-query";
-import { toast } from "react-toastify";
 import { UploadImage } from "@/components/UploadImage";
 import axios from "axios";
-import { Button, Form, notification, Modal, InputNumber, Select } from "antd";
+import {
+  Button,
+  Form,
+  notification,
+  Modal,
+  InputNumber,
+  Select,
+  message,
+} from "antd";
 
 export default function RegisterDriverModal({
   openRegisterDriver,
@@ -14,25 +21,17 @@ export default function RegisterDriverModal({
 }) {
   const [form] = Form.useForm();
   const [user, setUser] = useUserState();
-  const [loading, setLoading] = useState(false);
-  const [profile, setProfile, clearProfile] = useLocalStorage("profile", "");
   const [driver, setDriver] = useDriverState();
 
   const [accessToken, setAccessToken, clearAccessToken] =
     useLocalStorage("access_token");
 
-  useEffect(() => {
-    setDriver(profile);
-  });
-
   const onSubmit = async (values) => {
-    setLoading(true);
-
     try {
       const did = driver?.result?._id || user?.result?.driverLicenses?._id;
 
       const response = await axios({
-        method: did ? "put" : "post", // Use PUT if there's an existing driver ID, otherwise use POST
+        method: did ? "put" : "post",
         url: did
           ? `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL}/drivers/updateDriver/${did}`
           : `${process.env.NEXT_PUBLIC_REACT_APP_BACKEND_URL}/drivers/registerDriver`,
@@ -40,14 +39,12 @@ export default function RegisterDriverModal({
         headers: {
           Authorization: `Bearer ${accessToken}`,
           "Content-Type": "application/json",
-          withCredentials: true,
         },
       });
 
       if (response.status === 200) {
         console.log(response.data);
         setDriver({ ...response.data });
-        setProfile({ ...response.data });
         handleCancleRegisterDriver();
         const successMessage =
           driver || user?.result?.driverLicenses
@@ -58,26 +55,13 @@ export default function RegisterDriverModal({
           message: successMessage,
         });
       } else {
-        console.log(error.response.data.errors[0].msg);
+        console.log(error);
       }
     } catch (error) {
-      notification.error({
-        message: "Lỗi",
-        description:
-          "Có lỗi xảy ra khi đăng kí. Vui lòng nhập đầy đủ thông tin",
-      });
-    } finally {
-      setLoading(false);
+      message.error(error.response.data.message);
     }
   };
-  const { mutate, isLoading } = useMutation(onSubmit, {
-    onMutate: () => {
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    },
-  });
+  const { mutate } = useMutation(onSubmit);
 
   return (
     <Modal
@@ -85,7 +69,6 @@ export default function RegisterDriverModal({
       onCancel={handleCancleRegisterDriver}
       footer={[
         <Button
-          loading={isLoading}
           htmlType="submit"
           type="primary"
           onClick={() => mutate(form.getFieldsValue())}
@@ -162,7 +145,16 @@ export default function RegisterDriverModal({
         </div>
 
         <div className="grow w-1/3">
-          <Form.Item label="Hình ảnh" name="image" required>
+          <Form.Item
+            label="Hình ảnh"
+            name="image"
+            rules={[
+              {
+                required: true,
+                message: "Hình Ảnh Không được để trống!",
+              },
+            ]}
+          >
             <UploadImage />
           </Form.Item>
         </div>
