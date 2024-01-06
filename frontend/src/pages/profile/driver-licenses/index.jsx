@@ -55,7 +55,7 @@ export default function DriverPage() {
           </Title>
           <div className="flex">
             <Button type="default" onClick={showModalRegister}>
-              Đăng ký
+              {driver || user?.result?.driverLicenses ? "Cập nhật" : "Đăng Kí"}
               <EditOutlined />
             </Button>
             <RegisterDriverModal
