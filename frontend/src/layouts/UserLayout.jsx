@@ -1,7 +1,5 @@
-import { UserFilledIcon } from "@/icons";
-import styled from "@emotion/styled";
-import { Divider, Layout, Menu } from "antd";
-import { useEffect, useState } from "react";
+import { Layout } from "antd";
+import Head from "next/head";
 import HeaderComponent from "@/components/HeaderComponent";
 import FooterComponent from "@/components/FooterComponent";
 import { useRouter } from "next/router";
@@ -23,8 +21,14 @@ export function UserWebLayout({ children }) {
 
   return (
     <Layout className="bg-white min-h-screen">
+      <Head>
+        <link
+          rel="icon"
+          href="https://cdn-icons-png.flaticon.com/512/3393/3393370.png"
+        />
+        <title>CRT- Ứng dụng thuê xe tự lái chất lượng</title>
+      </Head>
       <HeaderComponent />
-      <title>CRT- Ứng dụng thuê xe tự lái chất lượng</title>
       <Content className="bg-white py-2">{children}</Content>
       <FooterComponent />
     </Layout>
