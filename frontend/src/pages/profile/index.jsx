@@ -155,7 +155,7 @@ export default function AccountPage() {
               </p>
               <p className="mt-0 mb-0 text-xl font-semibold text-gray-500 flex w-full">
                 {" "}
-                Nam
+                {user?.result?.gender}
               </p>
             </div>
             <hr

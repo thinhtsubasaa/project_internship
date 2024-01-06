@@ -1,5 +1,5 @@
 import "./global.css";
-
+import Head from "next/head";
 import { queryClient } from "@/apis/client";
 import { themeConfigs } from "@/configs/ant.config";
 import { UserWebLayout } from "@/layouts/UserLayout";
@@ -42,6 +42,13 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <>
+      <Head>
+        <link
+          rel="icon"
+          href="https://cdn-icons-png.flaticon.com/512/3393/3393370.png"
+        />
+        <title>CRT- Ứng dụng thuê xe tự lái chất lượng</title>
+      </Head>
       {isI18nInitialised && (
         <I18nextProvider i18n={i18n}>
           <RecoilRoot>

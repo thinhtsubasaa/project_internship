@@ -1,5 +1,6 @@
 import { UserFilledIcon } from "@/icons";
 import styled from "@emotion/styled";
+
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/logo.png";
