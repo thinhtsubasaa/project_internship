@@ -15,7 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { RecoilRoot } from "recoil";
 
 function MyApp({ Component, pageProps }) {
-  const { Layout = UserWebLayout, title = "Rental Car" } = Component;
+  const { Layout = UserWebLayout } = Component;
   const [isI18nInitialised, setIsI18nInitialised] = useState(false);
   useEffect(() => {
     async function initializeI18n() {

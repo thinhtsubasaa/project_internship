@@ -14,13 +14,17 @@ export function UserWebLayout({ children }) {
 
   const role = user?.result?.role;
 
-  if (role === "admin" && !(pathname.includes("admin") || pathname.includes("_error"))) {
+  if (
+    role === "admin" &&
+    !(pathname.includes("admin") || pathname.includes("_error"))
+  ) {
     push("/admin/dashboard");
   }
 
   return (
     <Layout className="bg-white min-h-screen">
       <HeaderComponent />
+      <title>CRT- Ứng dụng thuê xe tự lái chất lượng</title>
       <Content className="bg-white py-2">{children}</Content>
       <FooterComponent />
     </Layout>

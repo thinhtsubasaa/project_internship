@@ -1,18 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { useUserState } from "@/recoils/user.state.js";
-import { useDriverState } from "@/recoils/driver.state.js";
 import { useMutation } from "@tanstack/react-query";
-import { toast } from "react-toastify";
 import axios from "axios";
 import { Button, Input, Form, notification, Modal, Select } from "antd";
 import styled from "@emotion/styled";
 
-const StyleInputModal = styled(Input)`
-  border-color: #949494;
-  height: 50px;
-  width: 100%;
-`;
 const ButtonSummit = styled(Button)`
   width: 100%;
   height: 50px;
@@ -55,8 +48,6 @@ export default function EditProfileModal({
   };
   const [form] = Form.useForm();
   const [user, setUser] = useUserState();
-  const [driver, setDriver] = useDriverState();
-  const [loading, setLoading] = useState(false);
 
   const [accessToken, setAccessToken, clearAccessToken] =
     useLocalStorage("access_token");
@@ -97,7 +88,7 @@ export default function EditProfileModal({
           message: "Cập nhật thành công",
         });
       } else {
-        console.log(error.response.data.errors[0].msg);
+        console.log(error);
       }
     } catch (error) {
       notification.error({
@@ -105,21 +96,9 @@ export default function EditProfileModal({
         description: "Có lỗi xảy ra khi cập nhật. Vui lòng thử lại sau",
       });
     }
-    {
-      toast.error(error.response.data.errors[0].msg, {
-        position: toast.POSITION.TOP_CENTER,
-      });
-    }
   };
 
-  const { mutate, isLoading } = useMutation(updateProfile, {
-    onMutate: () => {
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-      }, 100);
-    },
-  });
+  const { mutate } = useMutation(updateProfile);
 
   return (
     <Modal
@@ -127,7 +106,6 @@ export default function EditProfileModal({
       onCancel={handleCancleEditModal}
       footer={[
         <ButtonSummit
-          loading={isLoading}
           htmlType="submit"
           type="primary"
           onClick={() => mutate(form.getFieldsValue())}
